@@ -24,7 +24,6 @@ export const PokedexProvider = ({ children }: { children: ReactNode }) => {
   }, [pokedex]);
 
   const addToPokedex = (pokemon: Pokemon) => {
-    console.log("pokemon: ", pokemon);
     if (!pokedex.some((p) => p.name === pokemon.name)) {
       setPokedex((prev) => [...prev, pokemon]);
     }
