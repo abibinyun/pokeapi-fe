@@ -19,8 +19,10 @@ const PokedexPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pokedex.map((pokemon) => (
             <div key={pokemon.name} className="bg-white shadow-lg rounded-lg p-4">
-              <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png`} alt={pokemon.name} className="w-20 h-20 mx-auto mb-4" />
-              <h2 className="text-xl font-bold text-center">{pokemon.name}</h2>
+              <Link to="/$detailPokemon" params={{ detailPokemon: pokemon.name }}>
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png`} alt={pokemon.name} className="w-20 h-20 mx-auto mb-4" />
+                <h2 className="text-xl font-bold text-center">{pokemon.name}</h2>
+              </Link>
               <button onClick={() => removeFromPokedex(pokemon.name)} className="mt-4 bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-600">
                 Remove
               </button>
